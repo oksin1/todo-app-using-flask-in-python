@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF=8">
+    <title>YOYO Todo App</title>
+</head>
+<body>
+    <h3>TODOA</h3>
+    <ul>
+        {% for todo in todoa%}
+        <li>
+            <input type="checkbox" name="done"{% if todo['done']%} checked {%endif%} onchanged="this.form.submit()">
+            {{todo['task']}}  
+        </li>
+
+        {% endfor %}
+    </ul>
+        <form action="{{url_for('add')}}" method="post">
+            <input type="text" name="todo">
+            <button type="submit">Add Todo</button>
+        </form>
+
+</body>
+</html>
+
+
